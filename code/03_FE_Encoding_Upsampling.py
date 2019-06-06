@@ -211,7 +211,7 @@ jj['time'] = pd.to_datetime(jj['time'])
 jj['scheduled_dep'] = jj['scheduled_dep'].apply(lambda x: int(str(x).split(':')[0])*60 + int(str(x).split(':')[1]))
 
 
-\add_datepart(jj, 'date', drop=False)
+add_datepart(jj, 'date', drop=False)
 jj[['Is_month_end','Is_month_start','Is_quarter_end','Is_quarter_sta60rt']] = jj[['Is_month_end','Is_month_start','Is_quarter_end','Is_quarter_start']].astype(np.int8)
 
 
