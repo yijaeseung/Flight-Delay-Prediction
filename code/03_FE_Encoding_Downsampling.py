@@ -275,21 +275,21 @@ df.drop(to_drop, axis = 1, inplace=True)
 train_cats(df)
 
 
-# 5. Upsampling
+# 5. Downsampling
 
 # - The number of observations that target = 1 is too small. Hence, I decided to use upsampling.
 
 ind = df[df['target']==0].index
-upsampling_ind = random.sample([x for x  in ind], int(1.5 * len(df[df['target']==1])) )
+downsamp_ind = random.sample([x for x  in ind], int(1.5 * len(df[df['target']==1])) )
 
 valid_ind = [x for x in df[df['target']==1].index]
 
 
 for x in valid_ind:
-    upsampling_ind.append(x)
+    downsamp_ind.append(x)
 
 
-df = df.loc[upsampling_ind]
+df = df.loc[downsamp_ind]
 df = df.sort_values(by=['date', 'scheduled_dep'])
 
 
